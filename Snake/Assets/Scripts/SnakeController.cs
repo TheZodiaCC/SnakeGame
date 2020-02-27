@@ -21,5 +21,8 @@ public class SnakeController : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
+    Collider OnTriggerEnter(Collider other)
+    {
+        return other; 
+    }
 }

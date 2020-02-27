@@ -102,7 +102,16 @@ public class MainController : MonoBehaviour
             dir = 3;
         }
 
-        //Debug.Log(head.transform.position);
+        //if (head.transform.position == currFood.transform.position)
+        //{
+        //    Destroy(currFood);
+        //    maxSize += 1;
+        //    score++;
+        //    genFood();
+        //}
+    }
+    void OnTriggerEnter(Collider other)
+    {
         if (head.transform.position == currFood.transform.position)
         {
             Destroy(currFood);

@@ -21,8 +21,10 @@ public class SnakeController : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    Collider OnTriggerEnter(Collider other)
+
+    void OnCollisionEnter(Collision collision)
     {
-        return other; 
+        Debug.Log("Hi");
     }
+
 }

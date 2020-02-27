@@ -67,7 +67,7 @@ public class MainController : MonoBehaviour
         tmpSnake.rmTail();
     }
 
-    void genFood()
+    public void genFood()
     {
         int xP = Random.Range(-xB, xB);
         int yP = Random.Range(-yB, yB);
@@ -109,15 +109,14 @@ public class MainController : MonoBehaviour
         //    score++;
         //    genFood();
         //}
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        if (head.transform.position == currFood.transform.position)
+
+        if(!currFood)
         {
-            Destroy(currFood);
             maxSize += 1;
             score++;
             genFood();
         }
     }
+
+    
 }

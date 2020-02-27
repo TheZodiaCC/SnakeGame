@@ -40,8 +40,6 @@ public class MainController : MonoBehaviour
         tmp = (GameObject)Instantiate(snake, nextP, transform.rotation);
         head.setNext(tmp.GetComponent<SnakeController>());
         head = tmp.GetComponent<SnakeController>();
-
-        return;
     }
 
     // Start is called before the first frame update
@@ -53,6 +51,21 @@ public class MainController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            dir = 0;
+        }
+        else if(Input.GetKeyDown(KeyCode.D))
+        {
+            dir = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            dir = 2;
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            dir = 3;
+        }
     }
 }

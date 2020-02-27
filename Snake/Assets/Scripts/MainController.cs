@@ -6,14 +6,21 @@ public class MainController : MonoBehaviour
 {
 
     public GameObject snake;
+    public GameObject food;
+    public GameObject currFood;
     public SnakeController head;
     public SnakeController tail;
+
+    public int xB;
+    public int yB;
 
     public Vector2 nextP;
     public int dir;
 
-    public int maxSize = 20;
+    public int maxSize = 1;
     public int currSize;
+
+    public int score = 0;
 
     
     void TimeRep()
@@ -60,10 +67,19 @@ public class MainController : MonoBehaviour
         tmpSnake.rmTail();
     }
 
+    void genFood()
+    {
+        int xP = Random.Range(-xB, xB);
+        int yP = Random.Range(-yB, yB);
+
+        currFood = (GameObject)Instantiate(food, new Vector2(xP, yP), transform.rotation);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("TimeRep", 0, 0.5f);
+        genFood();
     }
 
     // Update is called once per frame
@@ -84,6 +100,15 @@ public class MainController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.A) && dir != 1)
         {
             dir = 3;
+        }
+
+        //Debug.Log(head.transform.position);
+        if (head.transform.position == currFood.transform.position)
+        {
+            Destroy(currFood);
+            maxSize += 1;
+            score++;
+            genFood();
         }
     }
 }

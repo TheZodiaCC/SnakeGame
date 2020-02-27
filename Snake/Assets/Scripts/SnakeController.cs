@@ -21,4 +21,5 @@ public class SnakeController : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }

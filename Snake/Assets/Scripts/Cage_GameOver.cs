@@ -6,6 +6,6 @@ public class Cage_GameOver : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("GameOver Cage");
+        MainController.setGameOver();
     }
 }

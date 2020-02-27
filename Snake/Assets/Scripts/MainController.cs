@@ -11,8 +11,8 @@ public class MainController : MonoBehaviour
     public SnakeController head;
     public SnakeController tail;
 
-    public int xB;
-    public int yB;
+    public int xB = 20;
+    public int yB = 20;
 
     public Vector2 nextP;
     public int dir;
@@ -21,6 +21,7 @@ public class MainController : MonoBehaviour
     public int currSize;
 
     public int score = 0;
+    public static bool GameOver = false;
 
     
     void TimeRep()
@@ -75,6 +76,17 @@ public class MainController : MonoBehaviour
         currFood = (GameObject)Instantiate(food, new Vector2(xP, yP), transform.rotation);
     }
 
+    void gameOver()
+    {
+        CancelInvoke();
+        Debug.Log("Game Over");
+    }
+
+    public static void setGameOver()
+    {
+        GameOver = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,6 +127,11 @@ public class MainController : MonoBehaviour
             maxSize += 1;
             score++;
             genFood();
+        }
+
+        if(GameOver)
+        {
+            gameOver();
         }
     }
 

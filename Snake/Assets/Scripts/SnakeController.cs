@@ -24,7 +24,7 @@ public class SnakeController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hi");
+        MainController.setGameOver();
     }
 
 }

@@ -12,10 +12,21 @@ public class MainController : MonoBehaviour
     public Vector2 nextP;
     public int dir;
 
+    public int maxSize = 20;
+    public int currSize;
+
     
     void TimeRep()
     {
         Move();
+        if(currSize >= maxSize)
+        {
+            tailFun();
+        }
+        else
+        {
+            currSize++;
+        }
     }
     void Move()
     {
@@ -40,6 +51,13 @@ public class MainController : MonoBehaviour
         tmp = (GameObject)Instantiate(snake, nextP, transform.rotation);
         head.setNext(tmp.GetComponent<SnakeController>());
         head = tmp.GetComponent<SnakeController>();
+    }
+
+    void tailFun()
+    {
+        SnakeController tmpSnake = tail;
+        tail = tail.getNext();
+        tmpSnake.rmTail();
     }
 
     // Start is called before the first frame update

@@ -19,6 +19,6 @@ public class SnakeController : MonoBehaviour
 
     public void rmTail()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

@@ -9,7 +9,7 @@ public class MainController : MonoBehaviour
     public SnakeController head;
     public SnakeController tail;
 
-    public Vector2 next;
+    public Vector2 nextP;
     public int dir;
 
     
@@ -20,26 +20,28 @@ public class MainController : MonoBehaviour
     void Move()
     {
         GameObject tmp;
-        next = head.transform.position;
+        nextP = head.transform.position;
         
         switch(dir)
         {
             case 0:
-                next = new Vector2(next.x, next.y + 1);
+                nextP = new Vector2(nextP.x, nextP.y + 1);
                 break;
             case 1:
-                next = new Vector2(next.x + 1, next.y);
+                nextP = new Vector2(nextP.x + 1, nextP.y);
                 break;
             case 2:
-                next = new Vector2(next.x, next.y - 1);
+                nextP = new Vector2(nextP.x, nextP.y - 1);
                 break;
             case 3:
-                next = new Vector2(next.x - 1, next.y);
+                nextP = new Vector2(nextP.x - 1, nextP.y);
                 break;
         }
-        tmp = (GameObject)Instantiate(snake, next, transform.rotation);
+        tmp = (GameObject)Instantiate(snake, nextP, transform.rotation);
         head.setNext(tmp.GetComponent<SnakeController>());
         head = tmp.GetComponent<SnakeController>();
+
+        return;
     }
 
     // Start is called before the first frame update

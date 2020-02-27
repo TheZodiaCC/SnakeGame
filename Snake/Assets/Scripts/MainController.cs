@@ -38,6 +38,8 @@ public class MainController : MonoBehaviour
                 break;
         }
         tmp = (GameObject)Instantiate(snake, next, transform.rotation);
+        head.setNext(tmp.GetComponent<SnakeController>());
+        head = tmp.GetComponent<SnakeController>();
     }
 
     // Start is called before the first frame update

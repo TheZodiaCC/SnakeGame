@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class SnakeController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private SnakeController next;
+
+    public void setNext(SnakeController i)
     {
-        
+        next = i;
     }
 
-    // Update is called once per frame
-    void Update()
+    public SnakeController getNext()
     {
-        
+        return next;
+    }
+
+    public void rmTail()
+    {
+        Destroy(this.gameObject);
     }
 }

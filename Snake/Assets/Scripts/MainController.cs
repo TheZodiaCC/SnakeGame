@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainController : MonoBehaviour
 {
@@ -22,6 +24,8 @@ public class MainController : MonoBehaviour
 
     public int score = 0;
     public static bool GameOver = false;
+
+    public Text txt;
 
     
     void TimeRep()
@@ -80,6 +84,7 @@ public class MainController : MonoBehaviour
     {
         CancelInvoke();
         Debug.Log("Game Over");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public static void setGameOver()
@@ -126,6 +131,7 @@ public class MainController : MonoBehaviour
         {
             maxSize += 1;
             score++;
+            txt.text = score.ToString();
             genFood();
         }
 

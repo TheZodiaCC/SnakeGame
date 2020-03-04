@@ -6,17 +6,26 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
-    public Button button;
+    public Button start_button;
+    public Button exit_button;
 
     // Start is called before the first frame update
     void Start()
     {
-        Button btn = button.GetComponent<Button>();
+        Button btn = start_button.GetComponent<Button>();
         btn.onClick.AddListener(Game);
+
+        Button btn_ex = exit_button.GetComponent<Button>();
+        btn_ex.onClick.AddListener(Exit);
     }
 
     void Game()
     {
         SceneManager.LoadScene("Game");
+    }
+
+    void Exit()
+    {
+        Application.Quit();
     }
 }

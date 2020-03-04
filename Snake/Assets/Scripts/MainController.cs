@@ -83,8 +83,8 @@ public class MainController : MonoBehaviour
     void gameOver()
     {
         CancelInvoke();
-        Debug.Log("Game Over");
         SceneManager.LoadScene("MainMenu");
+        GameOver = false;
     }
 
     public static void setGameOver()
@@ -118,14 +118,6 @@ public class MainController : MonoBehaviour
         {
             dir = 3;
         }
-
-        //if (head.transform.position == currFood.transform.position)
-        //{
-        //    Destroy(currFood);
-        //    maxSize += 1;
-        //    score++;
-        //    genFood();
-        //}
 
         if(!currFood)
         {
